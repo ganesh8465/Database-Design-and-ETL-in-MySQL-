@@ -248,7 +248,8 @@ ranks = ['1','2','3','4','5','6','7','8','9']
 ranks_weight  = [0.25, 0.15, 0.20, 0.15, 0.10, 0.05, 0.06, 0.03, 0.01 ]
 
 for name in complete_pinyin_names:
-    vals.append((name, random.randint(15, 77), random.choice(['M', 'F']), random.choice(cultivation_list), np.random.choice(ranks, p=ranks_weight), np.random.choice(['No', 'Yes'], p=weights), random.randint(1,30)))
+    vals.append((name, random.randint(15, 77), random.choice(['M', 'F']), random.choice(cultivation_list), 
+                np.random.choice(ranks, p=ranks_weight), np.random.choice(['No', 'Yes'], p=weights), random.randint(1,30)))
 
 sql = "INSERT INTO citizens (full_name, age, Gender, cultivation, power_rank, isRouge, sect_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
 
