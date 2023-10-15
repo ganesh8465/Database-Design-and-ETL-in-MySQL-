@@ -209,13 +209,15 @@ sql = "INSERT INTO sects (sect_name, alliance_id) VALUES (%s, %s)"
 mycursor.executemany(sql, vals)
 db.commit()
 
-mycursor.execute("CREATE TABLE inventory (ID INT PRIMARY KEY AUTO_INCREMENT, sect_id INT, swords INT, arrows INT, poison INT, daggers INT, ships INT, SS_Rated_weapons INT )")
+mycursor.execute("CREATE TABLE inventory (ID INT PRIMARY KEY AUTO_INCREMENT, sect_id INT, swords INT, 
+                                  arrows INT, poison INT, daggers INT, ships INT, SS_Rated_weapons INT )")
 
 vals = []
 i = 1
 
 for sect in sects_list:
-    vals.append((i, random.randint(0,5000), random.randint(0,10000), random.randint(0,1000), random.randint(0,1000) , random.randint(0,50) , random.randint(0,10)))
+    vals.append((i, random.randint(0,5000), random.randint(0,10000), random.randint(0,1000), random.randint(0,1000) , 
+                  random.randint(0,50) , random.randint(0,10)))
     i = i+1
 
 sql = "INSERT INTO inventory (sect_id, swords, arrows, poison, daggers, ships, SS_Rated_weapons) VALUES (%s, %s, %s, %s, %s, %s, %s)"
